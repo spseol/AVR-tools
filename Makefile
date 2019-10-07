@@ -9,6 +9,8 @@
 TARGET = DEMO
 # chip
 CHIP = atmega328p
+# programmer: -b baudrate, -P port, -d system name of the usb serial converter
+PROGRAMMER = arduino -b 115200 -P $(shell $(WFS) -d Serial)
 # optimalization
 OPT = -Os
 # build dir
@@ -53,9 +55,12 @@ RM = rm -rf
 # wykys scripts
 WTR = $(RUN_PYTHON) $(SCRIPTS_DIR)$(PREFIX)translate-mcu.py --mcu=$(CHIP)
 WSZ = $(RUN_PYTHON) $(SCRIPTS_DIR)$(PREFIX)size.py --mcu=$(CHIP) --color --size="$(SZ)"
-WFS = $(RUN_PYTHON) $(SCRIPTS_DIR)find-serial.py --device=Serial
+WFS = $(RUN_PYTHON) $(SCRIPTS_DIR)find-serial.py
+WCM = $(RUN_PYTHON) $(SCRIPTS_DIR)change-mcu.py
+# miniterm
+MINITERM = $(SCRIPTS_DIR)run-miniterm.sh $(shell $(WFS))
 # avrdude
-AVRDUDE = avrdude -p $(shell $(WTR)) -c $(PROGRAMMER) -P $(shell $(WFS))
+AVRDUDE = avrdude -p $(shell $(WTR)) -c $(PROGRAMMER)
 
 #######################################
 # build the application
@@ -122,3 +127,16 @@ chip_test:
 	@$(AVRDUDE)
 build_and_flash: all flash
 install: all flash
+
+#######################################
+# miniterm
+#######################################
+miniterm:
+	@$(MINITERM)
+
+
+#######################################
+# project management
+#######################################
+change_mcu:
+	@$(WCM)
