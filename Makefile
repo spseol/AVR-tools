@@ -25,6 +25,9 @@ SRC = src
 # includes
 INC = -Iinc
 
+PROGRAMMER=arduino
+#PROGRAMMER=usbasp
+
 
 ######################################
 # source
