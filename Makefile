@@ -10,7 +10,12 @@ TARGET = DEMO
 # chip
 CHIP = atmega328p
 # programmer: -b baudrate, -P port, -d system name of the usb serial converter
-PROGRAMMER = arduino -b 115200 -P $(shell $(WFS) -d Serial)
+#PROGRAMMER = arduino -b 115200 -P $(shell $(WFS) -d Serial)
+PROGRAMMER = arduino -b  57600 -P $(shell $(WFS) -d Serial)
+#PROGRAMMER = usbasp
+#PROGRAMMER = xplainedmini_dw
+#PROGRAMMER = xplainedmini
+
 # optimalization
 OPT = -Os
 # build dir
