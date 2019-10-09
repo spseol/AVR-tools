@@ -128,7 +128,7 @@ flash_all:
 chip_test:
 	@$(AVRDUDE)
 build_and_flash: all flash
-
+install: all flash
 
 #######################################
 # miniterm
