@@ -62,7 +62,7 @@ WCM = $(RUN_PYTHON) $(SCRIPTS_DIR)change-mcu.py
 # miniterm
 MINITERM = $(SCRIPTS_DIR)run-miniterm.sh $(shell $(WFS))
 # avrdude
-AVRDUDE = avrdude -p $(shell $(WTR)) -c $(PROGRAMMER)
+AVRDUDE = sudo avrdude -p $(shell $(WTR)) -c $(PROGRAMMER)
 
 #######################################
 # build the application
