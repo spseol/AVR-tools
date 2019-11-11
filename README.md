@@ -13,6 +13,16 @@ git clone git@github.com:wykys/AVR-tools.git
 # else use HTTPS
 git clone https://github.com/wykys/AVR-tools.git
 ```
+### Getting docs (optional)
+
+Get `doc` directory with datasheets and other documentation.
+
+```bash
+git fetch origin docs
+git merge docs
+```
+
+
 
 ### Set the name of the project folder
 Use the `mv` command to change the folder name.
