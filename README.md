@@ -8,10 +8,7 @@ Open the terminal and go to a path where you want to create your AVR project. Us
 ### Getting the project template
 Getting the template is easy. Just clone this repository.
 ```bash
-# if you prefer SSH
-git clone git@github.com:wykys/AVR-tools.git
-# else use HTTPS
-git clone https://github.com/wykys/AVR-tools.git
+git clone https://github.com/spseol/AVRtools.git the_name_of_your_project
 ```
 ### Getting docs (optional)
 
@@ -19,27 +16,17 @@ Get `doc` directory with datasheets and other documentation.
 
 ```bash
 git fetch origin docs
-git merge docs
+git merge origin/docs
 ```
 
-
-
-### Set the name of the project folder
-Use the `mv` command to change the folder name.
-```bash
-# replace the the_name_of_your_project with the desired name
-mv AVR-tools the_name_of_your_project
-# and go to your project folder
-cd the_name_of_your_project
-```
 
 ### Open project in editor
 Open your project in your favorite text editor. Choose one option.
 ```bash
-# for Atom
-atom .
 # for Visual Studio Code
 code .
+# or vim :-)
+nvim .
 ```
 
 ### Makefile settings
@@ -115,6 +102,7 @@ make all
 make flash
 # compiling the project and programming the flash
 make build_and_flash
+make install
 # deletes the compilation outputs
 make clean
 # start avrdude terminal
@@ -190,7 +178,10 @@ sh -c "$(wget https://raw.githubusercontent.com/wykys/AVR-tools/master/.scripts/
 
 
 ## Updates
-With git you can get a newer version, but if you already have a project, I recommend that you make a backup first because there may be a collision between the files.
+
+With git you can get a newer version, but if you already have a project, I
+recommend that you make a backup first because there may be a collision between
+the files.
 
 ```bash
 # go to the project folder and use this command
